@@ -17,12 +17,12 @@ with newer usage that explicitly provides group of objects we want to query:
 from icinga_api import IcingaApi
 
 api = icinga_api.IcingaApi("hostname", "username", "password", "rkey")
-api.hosts.get("A")
+status, response = api.hosts.get("A")
 
 ```
 
 Along with providing cleaner implementation, this might help provide
 
 * cleaner API via usage of inheritance
-* object-specific interfaces
+* object-specific interfaces (for examples look at FQDN validation in host vs service vs notification; but in general with would allow adding object-specific methods)
 * cleaner CLI via better error handling
